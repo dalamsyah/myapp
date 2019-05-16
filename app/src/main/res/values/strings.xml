@@ -2,8 +2,8 @@
     <string name="app_name">My Application</string>
 
     <string-array name="field">
-        <item>Text</item>
-        <item>Integer</item>
+        <item>TEXT</item>
+        <item>INT</item>
     </string-array>
 
 </resources>
