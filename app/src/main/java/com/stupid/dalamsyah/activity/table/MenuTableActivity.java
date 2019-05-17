@@ -22,6 +22,13 @@ public class MenuTableActivity extends AppCompatActivity {
 
     public void gotoShowTable(View v){
         Intent i = new Intent(MenuTableActivity.this, ListTableActivity.class);
+        i.putExtra("type", "show");
+        startActivity(i);
+    }
+
+    public void gotoInsertTable(View v){
+        Intent i = new Intent(MenuTableActivity.this, ListTableActivity.class);
+        i.putExtra("type", "insert");
         startActivity(i);
     }
 

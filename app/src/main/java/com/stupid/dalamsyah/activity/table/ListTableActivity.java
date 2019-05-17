@@ -51,9 +51,17 @@ public class ListTableActivity extends AppCompatActivity implements BasicAdapter
     @Override
     public void onItemClick(View view, int position) {
 
-        Intent i = new Intent(ListTableActivity.this, ValueTableActivity.class);
-        i.putExtra("table", adapter.getItem(position));
-        startActivity(i);
+        if(getIntent().getStringExtra("type").startsWith("show")){
+            Intent i = new Intent(ListTableActivity.this, ValueTableActivity.class);
+            i.putExtra("table", adapter.getItem(position));
+            startActivity(i);
+        }else{
+            Intent i = new Intent(ListTableActivity.this, InsertTableActivity.class);
+            i.putExtra("table", adapter.getItem(position));
+            startActivity(i);
+        }
+
+
 
     }
 }
