@@ -27,6 +27,8 @@ dependencies {
     //implementation 'com.midtrans:core:0.0.2'
     //implementation 'com.midtrans:corekit:1.22.0-SANDBOX'
     implementation 'com.midtrans:uikit:1.22.0-SANDBOX'
+    implementation 'com.android.volley:volley:1.1.1'
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

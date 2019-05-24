@@ -32,10 +32,13 @@ public class LearnNotificationActivity extends AppCompatActivity {
         tab = (TableLayout)findViewById(R.id.tab);
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
+
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.stupid.dalamsyah.NOTIFICATION_LISTENER_EXAMPLE");
         registerReceiver(nReceiver,filter);
 
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
 
     }
 
@@ -87,11 +90,16 @@ public class LearnNotificationActivity extends AppCompatActivity {
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            /*Intent i = new Intent("com.stupid.dalamsyah.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
+            Intent i = new Intent("com.stupid.dalamsyah.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
             i.putExtra("command","list");
-            sendBroadcast(i);*/
+            sendBroadcast(i);
 
-            LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
+            //LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
+        }
+        else if(v.getId() == R.id.tes){
+            Intent intent = new Intent(
+                    "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+            startActivity(intent);
         }
 
     }
