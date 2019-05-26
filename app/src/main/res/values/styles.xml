@@ -10,21 +10,29 @@
 
     <style name="btnPrimary" parent="Theme.AppCompat.Light">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="colorButtonNormal">#FB8C00</item>
-        <item name="colorControlHighlight">#FFFFFF</item>
+        <item name="colorButtonNormal">@color/colorBtn</item>
+        <item name="colorControlHighlight">@color/colorBtnHighlight</item>
         <item name="android:padding">20dp</item>
     </style>
 
     <style name="btnBack" parent="Theme.AppCompat.Light">
         <item name="android:textColor">#FFFFFF</item>
         <item name="colorButtonNormal">#00FB8C00</item>
-        <item name="colorControlHighlight">#FB8C00</item>
+        <item name="colorControlHighlight">@color/colorBtn</item>
         <item name="android:padding">20dp</item>
         <item name="android:drawableLeft">@drawable/ic_arrow_white</item>
     </style>
 
+    <style name="btnSpinner" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#808080</item>
+        <item name="colorButtonNormal">#fff</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:colorLongPressedHighlight">#fff</item>
+        <item name="colorControlHighlight">@color/colorBtn</item>
+    </style>
+
     <style name="cvPrimary" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">#FB8C00</item>
+        <item name="colorControlHighlight">@color/colorBtn</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 

@@ -4,6 +4,7 @@ public class Tanggal {
     public String hari = "";
     public String tgl = "";
     public String waktu = "";
+    public boolean press = false;
 
     public Tanggal() {
     }
@@ -36,5 +37,13 @@ public class Tanggal {
 
     public void setWaktu(String waktu) {
         this.waktu = waktu;
+    }
+
+    public boolean isPress() {
+        return press;
+    }
+
+    public void setPress(boolean press) {
+        this.press = press;
     }
 }

@@ -1,22 +1,38 @@
 package com.stupid.dalamsyah.activity.booking;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stupid.dalamsyah.R;
 import com.stupid.dalamsyah.activity.booking.adapter.TanggalAdapter;
+import com.stupid.dalamsyah.activity.booking.dialog.ProgressDialog;
+import com.stupid.dalamsyah.activity.booking.model.Lapangan;
 import com.stupid.dalamsyah.activity.booking.model.Tanggal;
+import com.stupid.dalamsyah.lib.res.ApiService;
+import com.stupid.dalamsyah.lib.res.ApiUtils;
 
 import java.util.ArrayList;
 
-public class PreBookingActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class PreBookingActivity extends ActivityBase {
 
     private boolean pressJam8 = true;
     private boolean pressJam9 = true;
@@ -38,6 +54,10 @@ public class PreBookingActivity extends AppCompatActivity {
     private ArrayList<Tanggal> lists = new ArrayList<>();
     private TanggalAdapter adapter;
     private RecyclerView recyclerView;
+    private boolean press = false;
+    private Button namaLapangan;
+    private DialogFragment progress;
+    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +65,9 @@ public class PreBookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pre_booking);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        namaLapangan = (Button) findViewById(R.id.namaLapangan);
+        progress = new ProgressDialog();
+        apiService = ApiUtils.getAPIService();
 
         Tanggal tanggal = new Tanggal("Senin", "20 Mei","");
         lists.add(tanggal);
@@ -72,13 +95,54 @@ public class PreBookingActivity extends AppCompatActivity {
             public void OnClick(Tanggal tanggal) {
 
             }
-        });
+        }, this);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
 
+        namaLapangan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PreBookingActivity.this, ChooseTypeLapanganActivity.class);
+                startActivityForResult(i, 1);
+            }
+        });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        namaLapangan.setText(data.getStringExtra("namaLapangan"));
+
+    }
+
+    public void sendPost(String title, String body) {
+        apiService.savePost("20-05-2019", "L001",
+                "08:00-09:00", "dimas@gmail.com", "BBFC").enqueue(new Callback<Lapangan>() {
+            @Override
+            public void onResponse(Call<Lapangan> call, Response<Lapangan> response) {
+                if (response.isSuccessful()){
+                    Log.i("PreBookingActivity", response.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Lapangan> call, Throwable t) {
+
+                Log.e("PreBookingActivity", "Unable to submit post to API.");
+            }
+        });
+    }
+
+    public void btnSend(View view){
+        progress.show(getSupportFragmentManager(), "progress");
+
+        /*DialogFragment dialog = new DialogFragment();
+        dialog.
+        dialog.show(getSupportFragmentManager(), "progress");*/
     }
 
     private void pressColor(View v, boolean s){

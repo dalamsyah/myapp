@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0c3c5b"
+    android:background="@color/backgroundDark"
     android:padding="10dp"
     tools:context=".activity.booking.PreBookingActivity">
 
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.CardView
+                <!--<android.support.v7.widget.CardView
                     android:clickable="true"
                     android:foreground="?android:selectableItemBackground"
                     android:id="@+id/typeLapangan"
@@ -65,7 +65,16 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>-->
+
+                <Button
+                    android:drawableRight="@drawable/ic_expand_more_black"
+                    android:textAllCaps="false"
+                    android:theme="@style/btnSpinner"
+                    android:text="Vinnyl"
+                    android:id="@+id/namaLapangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -404,6 +413,7 @@
     </ScrollView>
 
     <Button
+        android:onClick="btnSend"
         android:theme="@style/btnPrimary"
         android:layout_alignParentBottom="true"
         android:id="@+id/btnNext"
