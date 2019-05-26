@@ -1,11 +1,31 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="btnPrimary" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="colorButtonNormal">#FB8C00</item>
+        <item name="colorControlHighlight">#FFFFFF</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="btnBack" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="colorButtonNormal">#00FB8C00</item>
+        <item name="colorControlHighlight">#FB8C00</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:drawableLeft">@drawable/ic_arrow_white</item>
+    </style>
+
+    <style name="cvPrimary" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#FB8C00</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
 </resources>
