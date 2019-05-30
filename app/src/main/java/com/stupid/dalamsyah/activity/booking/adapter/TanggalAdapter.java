@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.stupid.dalamsyah.R;
+import com.stupid.dalamsyah.activity.booking.PreBookingActivity;
 import com.stupid.dalamsyah.activity.booking.model.Lapangan;
 import com.stupid.dalamsyah.activity.booking.model.Tanggal;
 
@@ -43,7 +44,7 @@ public class TanggalAdapter extends RecyclerView.Adapter<TanggalAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull TanggalAdapter.MyViewHolder holder, final int i) {
-        Tanggal model = list.get(i);
+        final Tanggal model = list.get(i);
         holder.bind(model, listener);
 
         holder.tgl.setText(model.getTgl());
@@ -53,6 +54,9 @@ public class TanggalAdapter extends RecyclerView.Adapter<TanggalAdapter.MyViewHo
             @Override
             public void onClick(View v) {
                 row_index = i;
+
+                ((PreBookingActivity)context).getMember(model.getHari());
+
                 notifyDataSetChanged();
             }
         });
@@ -90,7 +94,7 @@ public class TanggalAdapter extends RecyclerView.Adapter<TanggalAdapter.MyViewHo
         }
 
         public void bind(final Tanggal tanggal, final OnItemClickListener listener){
-            itemView.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
