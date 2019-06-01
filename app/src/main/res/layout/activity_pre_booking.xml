@@ -97,6 +97,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam8"
                         android:padding="10dp"
                         android:text="08:00 - 09:00"
                         android:layout_width="wrap_content"
@@ -112,6 +113,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam9"
                         android:padding="10dp"
                         android:text="09:00 - 10:00"
                         android:layout_width="wrap_content"
@@ -138,6 +140,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam10"
                         android:padding="10dp"
                         android:text="10:00 - 11:00"
                         android:layout_width="wrap_content"
@@ -153,6 +156,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam11"
                         android:padding="10dp"
                         android:text="11:00 - 12:00"
                         android:layout_width="wrap_content"
@@ -179,6 +183,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam12"
                         android:padding="10dp"
                         android:text="12:00 - 13:00"
                         android:layout_width="wrap_content"
@@ -194,6 +199,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam13"
                         android:padding="10dp"
                         android:text="13:00 - 14:00"
                         android:layout_width="wrap_content"
@@ -220,6 +226,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam14"
                         android:padding="10dp"
                         android:text="14:00 - 15:00"
                         android:layout_width="wrap_content"
@@ -235,6 +242,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam15"
                         android:padding="10dp"
                         android:text="15:00 - 16:00"
                         android:layout_width="wrap_content"
@@ -261,6 +269,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam16"
                         android:padding="10dp"
                         android:text="16:00 - 17:00"
                         android:layout_width="wrap_content"
@@ -276,6 +285,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam17"
                         android:padding="10dp"
                         android:text="17:00 - 18:00"
                         android:layout_width="wrap_content"
@@ -302,6 +312,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam18"
                         android:padding="10dp"
                         android:text="18:00 - 19:00"
                         android:layout_width="wrap_content"
@@ -317,6 +328,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam19"
                         android:padding="10dp"
                         android:text="19:00 - 20:00"
                         android:layout_width="wrap_content"
@@ -343,6 +355,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam20"
                         android:padding="10dp"
                         android:text="20:00 - 21:00"
                         android:layout_width="wrap_content"
@@ -358,6 +371,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam21"
                         android:padding="10dp"
                         android:text="21:00 - 22:00"
                         android:layout_width="wrap_content"
@@ -384,6 +398,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam22"
                         android:padding="10dp"
                         android:text="22:00 - 23:00"
                         android:layout_width="wrap_content"
@@ -399,6 +414,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/t_jam23"
                         android:padding="10dp"
                         android:text="23:00 - 24:00"
                         android:layout_width="wrap_content"
