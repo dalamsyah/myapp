@@ -1,5 +1,6 @@
 package com.stupid.dalamsyah.lib.res;
 
+import com.stupid.dalamsyah.activity.anggit.Quotes;
 import com.stupid.dalamsyah.activity.anggit.Resutls;
 import com.stupid.dalamsyah.activity.anggit.User;
 import com.stupid.dalamsyah.activity.booking.model.Lapangan;
@@ -40,5 +41,11 @@ public interface ApiService {
     @POST("/login")
     @FormUrlEncoded
     Call<Resutls> loginAnggit(@Field("username") String username, @Field("password") String password);
+
+    @GET("/quotes")
+    Call<Quotes> quotesAnggit();
+
+    @GET("/quotes")
+    Call<ArrayList<Quotes> > quotesAnggit2();
 
 }
