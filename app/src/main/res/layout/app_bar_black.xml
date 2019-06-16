@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/toolbar"
+              android:layout_width="wrap_content"
+              android:layout_height="?attr/actionBarSize"
+              android:orientation="horizontal"
+              android:background="@android:color/transparent"
+              android:gravity="center_vertical"
+              android:layout_marginBottom="10dp"
+              app:layout_collapseMode="pin"
+              android:onClick="btnBack"
+              app:layout_scrollFlags="scroll|enterAlways">
+
+    <ImageView
+        android:src="@drawable/ic_arrow_black"
+        android:layout_width="50dp"
+        android:layout_height="30dp" />
+
+</LinearLayout>
