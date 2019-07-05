@@ -9,8 +9,15 @@
     android:padding="@dimen/padding"
     tools:context=".activity.anggit.LoginActivity">
 
+    <ImageView
+        android:padding="20dp"
+        android:src="@drawable/fa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/round_editext"
         android:id="@+id/username"
         android:hint="username"
@@ -18,7 +25,9 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:inputType="textPassword"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/round_editext"
         android:id="@+id/password"
         android:hint="password"
@@ -27,8 +36,17 @@
 
     <Button
         android:onClick="btnSend"
+        android:theme="@style/btnPrimary"
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:text="Happy Wedding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

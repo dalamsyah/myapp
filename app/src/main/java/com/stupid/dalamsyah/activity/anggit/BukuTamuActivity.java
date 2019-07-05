@@ -8,12 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.stupid.dalamsyah.R;
 import com.stupid.dalamsyah.activity.booking.dialog.ProgressDialog;
-import com.stupid.dalamsyah.activity.booking.model.Lapangan;
 import com.stupid.dalamsyah.lib.res.ApiService;
 import com.stupid.dalamsyah.lib.res.RetrofitClient;
 
@@ -24,14 +22,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class QuotesActivity extends AppCompatActivity {
+public class BukuTamuActivity extends AppCompatActivity {
 
     private ApiService apiService;
-    private QuotesAdapter adapter;
-    private List<Quotes> lists = new ArrayList<>();
-    Quotes quotes;
+    private BukuTamuAdapter adapter;
+    private List<BukuTamuResults> lists = new ArrayList<>();
+    BukuTamuResults bukuTamuResults;
     RecyclerView recyclerView;
     private DialogFragment progress;
+    String[] options;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +41,17 @@ public class QuotesActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         progress = new ProgressDialog();
 
-        adapter = new QuotesAdapter(lists, new QuotesAdapter.OnItemClickListener() {
+        adapter = new BukuTamuAdapter(lists, new BukuTamuAdapter.OnItemClickListener() {
             @Override
-            public void OnClick(final Quotes quotes) {
+            public void OnClick(final BukuTamuResults buku) {
 
-                final String[] options = {"Show", "Edit"};
+                options = new String[]{"Show", "Edit"};
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(QuotesActivity.this);
+                if(buku.getUsername() != Preferences.getUsername(BukuTamuActivity.this)){
+                    options = new String[]{"Show"};
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(BukuTamuActivity.this);
                 builder.setTitle("Option");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
@@ -56,23 +59,23 @@ public class QuotesActivity extends AppCompatActivity {
 
                         if("Show".equals(options[which])){
 
-                            Intent i = new Intent(QuotesActivity.this, QuotesAddActivity.class);
-                            i.putExtra("id", quotes.getId());
-                            i.putExtra("author", quotes.getAuthor());
-                            i.putExtra("quotes", quotes.getQuote());
+                            Intent i = new Intent(BukuTamuActivity.this, BukuTamuAddActivity.class);
+                            i.putExtra("id", buku.getId());
+                            i.putExtra("nama", buku.getName());
+                            i.putExtra("username", buku.getUsername());
+                            i.putExtra("remark", buku.getRemark());
                             i.putExtra("show", true);
                             startActivity(i);
 
                         }else if ("Edit".equals(options[which])){
 
-                            Intent i = new Intent(QuotesActivity.this, QuotesAddActivity.class);
-                            i.putExtra("id", quotes.getId());
-                            i.putExtra("author", quotes.getAuthor());
-                            i.putExtra("quotes", quotes.getQuote());
+                            Intent i = new Intent(BukuTamuActivity.this, BukuTamuAddActivity.class);
+                            i.putExtra("id", buku.getId());
+                            i.putExtra("nama", buku.getName());
+                            i.putExtra("username", buku.getUsername());
+                            i.putExtra("remark", buku.getRemark());
                             i.putExtra("show", false);
                             startActivity(i);
-
-                        }else if ("Delete".equals(options[which])){
 
                         }
                     }
@@ -86,6 +89,7 @@ public class QuotesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         load();
+
     }
 
     public void btnBack(View view){
@@ -93,7 +97,7 @@ public class QuotesActivity extends AppCompatActivity {
     }
 
     public void add(View view){
-        Intent i = new Intent(this, QuotesAddActivity.class);
+        Intent i = new Intent(this, BukuTamuAddActivity.class);
         startActivity(i);
     }
 
@@ -101,10 +105,10 @@ public class QuotesActivity extends AppCompatActivity {
 
         progress.show(getSupportFragmentManager(), "progress");
 
-        Call<ArrayList<Quotes>> results = apiService.quotesAnggit2();
-        results.enqueue(new Callback<ArrayList<Quotes>>() {
+        Call<ArrayList<BukuTamuResults>> results = apiService.bukutamuAnggit();
+        results.enqueue(new Callback<ArrayList<BukuTamuResults>>() {
             @Override
-            public void onResponse(Call<ArrayList<Quotes>> call, Response<ArrayList<Quotes>> response) {
+            public void onResponse(Call<ArrayList<BukuTamuResults>> call, Response<ArrayList<BukuTamuResults>> response) {
 
                 lists.addAll(response.body());
                 adapter.notifyDataSetChanged();
@@ -113,12 +117,13 @@ public class QuotesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Quotes>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<BukuTamuResults>> call, Throwable t) {
                 t.printStackTrace();
                 progress.dismiss();
             }
         });
 
     }
+
 
 }

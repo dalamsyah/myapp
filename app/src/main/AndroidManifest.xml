@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.stupid.dalamsyah">
+    package="com.stupid.dalamsyah">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="false"
@@ -12,31 +12,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.anggit.QuotesAddActivity">
-        </activity>
-        <activity android:name=".activity.anggit.QuotesActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        <activity android:name=".activity.anggit.BukuTamuAddActivity"></activity>
+        <activity android:name=".activity.anggit.BukuTamuActivity" />
+        <activity android:name=".activity.anggit.MenuActivity">
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+        </activity>
+        <activity android:name=".activity.anggit.QuotesAddActivity" />
+        <activity android:name=".activity.anggit.QuotesActivity" />
+        <activity android:name=".activity.anggit.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.booking.ChooseTypeLapanganActivity"/>
-        <activity android:name=".activity.booking.PreBookingActivity">
-        </activity>
-        <activity android:name=".activity.booking.MenuBookingActivity">
-        </activity>
-        <activity android:name=".activity.anggit.LoginActivity">
-        </activity>
-        <activity android:name=".activity.notification.LearnNotificationActivity"/>
-        <activity android:name=".activity.notification.MainActivity"/>
-        <activity android:name=".activity.table.InsertTableActivity"/>
-        <activity android:name=".activity.table.ValueTableActivity"/>
-        <activity android:name=".activity.table.ListTableActivity"/>
-        <activity android:name=".activity.table.MenuTableActivity"/>
-        <activity android:name=".activity.table.CreateTableActivity"/>
-        <activity android:name=".activity.gopay.MainActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".activity.booking.ChooseTypeLapanganActivity" />
+        <activity android:name=".activity.booking.PreBookingActivity" />
+        <activity android:name=".activity.booking.MenuBookingActivity" />
+        <activity android:name=".activity.notification.LearnNotificationActivity" />
+        <activity android:name=".activity.notification.MainActivity" />
+        <activity android:name=".activity.table.InsertTableActivity" />
+        <activity android:name=".activity.table.ValueTableActivity" />
+        <activity android:name=".activity.table.ListTableActivity" />
+        <activity android:name=".activity.table.MenuTableActivity" />
+        <activity android:name=".activity.table.CreateTableActivity" />
+        <activity android:name=".activity.gopay.MainActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
