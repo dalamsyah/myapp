@@ -39,7 +39,7 @@ public class QuotesAddActivity extends AppCompatActivity {
         progress = new ProgressDialog();
 
         Intent i = getIntent();
-        if(i != null){
+        if(i.getExtras() != null){
             author.setText( i.getStringExtra("author") );
             quotes.setText( i.getStringExtra("quotes") );
             id = i.getStringExtra("id");
@@ -108,6 +108,8 @@ public class QuotesAddActivity extends AppCompatActivity {
             });
         }
 
+        setResult(RESULT_OK);
+        finish();
 
     }
 

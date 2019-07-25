@@ -45,6 +45,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnSend"
         android:onClick="btnSend"
         android:theme="@style/btnPrimary"
         android:text="Submit"

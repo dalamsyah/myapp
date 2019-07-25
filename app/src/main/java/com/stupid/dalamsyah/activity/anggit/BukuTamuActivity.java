@@ -2,6 +2,7 @@ package com.stupid.dalamsyah.activity.anggit;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +48,7 @@ public class BukuTamuActivity extends AppCompatActivity {
 
                 options = new String[]{"Show", "Edit"};
 
-                if(buku.getUsername() != Preferences.getUsername(BukuTamuActivity.this)){
+                if(!buku.getOwner().equals( Preferences.getStatusUser(BukuTamuActivity.this) )){
                     options = new String[]{"Show"};
                 }
 
@@ -65,7 +66,7 @@ public class BukuTamuActivity extends AppCompatActivity {
                             i.putExtra("username", buku.getUsername());
                             i.putExtra("remark", buku.getRemark());
                             i.putExtra("show", true);
-                            startActivity(i);
+                            startActivityForResult(i, 1);
 
                         }else if ("Edit".equals(options[which])){
 
@@ -75,7 +76,7 @@ public class BukuTamuActivity extends AppCompatActivity {
                             i.putExtra("username", buku.getUsername());
                             i.putExtra("remark", buku.getRemark());
                             i.putExtra("show", false);
-                            startActivity(i);
+                            startActivityForResult(i, 1);
 
                         }
                     }
@@ -98,7 +99,18 @@ public class BukuTamuActivity extends AppCompatActivity {
 
     public void add(View view){
         Intent i = new Intent(this, BukuTamuAddActivity.class);
-        startActivity(i);
+        startActivityForResult(i, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            lists.clear();
+            load();
+        }
+
     }
 
     public void load(){

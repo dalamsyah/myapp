@@ -2,6 +2,7 @@ package com.stupid.dalamsyah.activity.anggit;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -61,7 +62,7 @@ public class QuotesActivity extends AppCompatActivity {
                             i.putExtra("author", quotes.getAuthor());
                             i.putExtra("quotes", quotes.getQuote());
                             i.putExtra("show", true);
-                            startActivity(i);
+                            startActivityForResult(i, 1);
 
                         }else if ("Edit".equals(options[which])){
 
@@ -70,7 +71,7 @@ public class QuotesActivity extends AppCompatActivity {
                             i.putExtra("author", quotes.getAuthor());
                             i.putExtra("quotes", quotes.getQuote());
                             i.putExtra("show", false);
-                            startActivity(i);
+                            startActivityForResult(i, 1);
 
                         }else if ("Delete".equals(options[which])){
 
@@ -94,7 +95,18 @@ public class QuotesActivity extends AppCompatActivity {
 
     public void add(View view){
         Intent i = new Intent(this, QuotesAddActivity.class);
-        startActivity(i);
+        startActivityForResult(i, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK){
+            lists.clear();
+            load();
+        }
+
     }
 
     public void load(){

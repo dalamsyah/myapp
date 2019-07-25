@@ -22,6 +22,17 @@ public class BukuTamuResults {
     @SerializedName("remark")
     String remark;
 
+    @SerializedName("owner")
+    String owner;
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     public String getId() {
         return id;
     }
